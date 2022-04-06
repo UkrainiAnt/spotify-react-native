@@ -1,43 +1,38 @@
 import React from "react";
-
-import { Feather } from "@expo/vector-icons";
-import { MaterialIcons } from "@expo/vector-icons";
+import {
+  MaterialCommunityIcons,
+  MaterialIcons,
+  EvilIcons,
+  FontAwesome5,
+} from "@expo/vector-icons";
 
 const fakeTabs: any[] = [
   {
-    Icon: "home",
+    Icon: "home-filled",
     to: "home",
     iconSet: MaterialIcons,
+    label: "Home",
   },
 
   {
-    Icon: "add-shopping-cart",
-    to: "cart",
+    Icon: "search",
+    to: "search",
     iconSet: MaterialIcons,
+    label: "Search",
   },
 
   {
-    Icon: "post-add",
-    to: "create",
+    Icon: "my-library-music",
+    to: "library",
     iconSet: MaterialIcons,
+    label: "Library",
   },
 
   {
-    Icon: "heart",
-    to: "liked",
-    iconSet: Feather,
-  },
-
-  {
-    Icon: "shop",
-    to: "orders",
-    iconSet: MaterialIcons,
-  },
-
-  {
-    Icon: "user",
+    Icon: "spotify",
     to: "profile",
-    iconSet: Feather,
+    iconSet: FontAwesome5,
+    label: "Premium",
   },
 ];
 

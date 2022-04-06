@@ -1,12 +1,12 @@
-import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Layout } from "components/layout";
 import { HomeScreenContent } from "components/pages/Home";
+import { View } from "react-native";
 
 const HomeScreen = () => {
   return (
     <Layout>
-      <View style={styles.wrapper}>
+      <View style={{ flex: 1 }}>
         <HomeScreenContent />
       </View>
     </Layout>
@@ -14,12 +14,3 @@ const HomeScreen = () => {
 };
 
 export default HomeScreen;
-
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#24293e",
-  },
-});

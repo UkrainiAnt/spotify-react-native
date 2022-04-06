@@ -8,13 +8,15 @@ export interface RegisterPayload extends LoginPayload {
   picture?: string;
 }
 
-export interface IUser extends RegisterPayload {
+export type IUser = {
   id: number;
+  email: string;
+  name: string | null;
   picture: string;
+  password: string;
   createdAt: Date;
   updatedAt: Date;
-  bio?: string;
-}
+};
 
 export interface IUpdateUserPayload {
   picture: string;

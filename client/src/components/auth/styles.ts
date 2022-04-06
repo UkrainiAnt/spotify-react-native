@@ -1,5 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
+import { colors } from "variables";
 
 export const styles = StyleSheet.create({
   wrapper: {
@@ -8,7 +9,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#24293e",
+    backgroundColor: colors.bg,
   },
 
   iconStyle: {

@@ -1,4 +1,4 @@
-import { StyleSheet, View, ViewStyle } from "react-native";
+import { StyleSheet, View, ViewStyle, Text } from "react-native";
 import React from "react";
 import { useRouting } from "hooks";
 import { useAuthState } from "hooks";
@@ -9,6 +9,7 @@ interface ITabItem {
   to: string;
   iconSet: any;
   Icon: string;
+  label: string;
 }
 
 interface SingleTapProps {
@@ -24,13 +25,20 @@ const SingleTab: React.FC<SingleTapProps> = (props) => {
   return (
     <TouchableOpacity onPress={navigateTo(tab.to, { userId: user?.id || 1 })}>
       <View style={styles.wrapper(isActive)}>
-        {isActive && <View style={style.badge} />}
-
         <tab.iconSet
           name={tab.Icon}
           size={26}
           color={isActive ? "#0284c7" : colors.secondary}
         />
+
+        <Text
+          style={{
+            color: isActive ? colors.blue : colors.secondary,
+            fontSize: 12,
+          }}
+        >
+          {tab.label}
+        </Text>
       </View>
     </TouchableOpacity>
   );
@@ -42,19 +50,10 @@ const styles = StyleSheet.create({
   wrapper: (isActive: boolean): ViewStyle => ({
     alignItems: "center",
     justifyContent: "center",
-    height: 29,
+
     padding: 0,
+    backgroundColor: "transparent",
+    paddingHorizontal: 10,
     opacity: isActive ? 1 : 0.5,
   }),
 } as any);
-
-const style = StyleSheet.create({
-  badge: {
-    color: colors.text,
-    width: 45,
-    height: 7,
-    borderBottomRightRadius: 20,
-    borderBottomLeftRadius: 20,
-    backgroundColor: "#0284c7",
-  },
-});

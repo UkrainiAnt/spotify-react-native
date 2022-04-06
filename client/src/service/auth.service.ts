@@ -46,6 +46,7 @@ export default class UserService {
   }
 
   static async getCurrentUser(): Promise<AxiosResponse<IUser>> {
+    console.log("getting new user done");
     return await axiosInstance.get("users/me");
   }
 
