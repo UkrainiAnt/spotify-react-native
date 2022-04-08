@@ -1,12 +1,15 @@
-import { configureStore } from "@reduxjs/toolkit";
-import { rootReducer } from "./reducer";
+import { configureStore } from '@reduxjs/toolkit';
+
+import { rootReducer } from './reducer';
 
 export const store = configureStore({
-  reducer: rootReducer,
+	reducer: rootReducer
 });
 
-export const createStore = <T extends Object>(preloadedState: T) => {
-  return configureStore({ reducer: rootReducer, preloadedState });
+export const createStore = <T extends Record<string, any>>(
+	preloadedState: T
+) => {
+	return configureStore({ reducer: rootReducer, preloadedState });
 };
 
 export type RootState = ReturnType<typeof store.getState>;

@@ -2,8 +2,14 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import { colors } from "variables";
 
-const GoBack = () => {
+interface GoBackProps {
+  isAbsolute: boolean;
+}
+
+const GoBack: React.FC<GoBackProps> = (props) => {
+  const { isAbsolute = false } = props;
   const navigation = useNavigation();
 
   const goBack = () => {
@@ -11,9 +17,16 @@ const GoBack = () => {
   };
 
   return (
-    <TouchableOpacity onPress={goBack} style={styles.wrapper}>
-      <Ionicons name="ios-chevron-back-outline" size={24} color={"black"} />
-      <Text style={styles.back}>Back</Text>
+    <TouchableOpacity
+      onPress={goBack}
+      style={isAbsolute ? styles.wrapper : styles.nonAbsoluteWrapper}
+    >
+      <Ionicons
+        name="ios-chevron-back-outline"
+        size={30}
+        color={colors.white}
+      />
+      <Text style={styles.back}></Text>
     </TouchableOpacity>
   );
 };
@@ -29,10 +42,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  nonAbsoluteWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
   back: {
     fontSize: 16,
     fontWeight: "bold",
     marginLeft: 6,
-    color: "black",
+    color: colors.white,
   },
 });

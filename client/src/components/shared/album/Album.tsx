@@ -1,43 +1,49 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
-import { IAlbum } from "models";
-import { colors } from "variables";
+import { useRouting } from 'hooks';
+import { IAlbum } from 'models';
+import React from 'react';
+import { Image, Pressable, StyleSheet, Text } from 'react-native';
+import { colors } from 'variables';
 
 interface AlbumProps {
-  album: IAlbum;
+	album: IAlbum;
+	numberOfLines?: number;
 }
 
-const Album: React.FC<AlbumProps> = (props) => {
-  const { album } = props;
+const Album: React.FC<AlbumProps> = props => {
+	const { album, numberOfLines = 2 } = props;
+	const { navigateTo } = useRouting();
 
-  return (
-    <View style={styles.wrapper}>
-      <Image style={styles.image} source={{ uri: album.picture }} />
+	return (
+		<Pressable
+			onPress={navigateTo('album', { albumId: album.id })}
+			style={styles.wrapper}
+		>
+			<Image style={styles.image} source={{ uri: album.picture }} />
 
-      <Text numberOfLines={2} style={styles.title}>
-        {album.name}
-      </Text>
-    </View>
-  );
+			<Text numberOfLines={numberOfLines} style={styles.title}>
+				{album.name}
+			</Text>
+		</Pressable>
+	);
 };
 
 export default Album;
 
 const styles = StyleSheet.create({
-  wrapper: {
-    marginRight: 15,
-    width: 150,
-  },
-  image: {
-    width: 150,
-    height: 150,
-    borderRadius: 4,
-  },
+	wrapper: {
+		marginRight: 15,
+		width: 150
+	},
+	image: {
+		width: 150,
+		height: 150,
+		borderRadius: 4
+	},
 
-  title: {
-    color: colors.secondary,
-    fontSize: 16,
-    marginTop: 7,
-    fontWeight: "bold",
-  },
+	title: {
+		color: colors.secondary,
+		fontSize: 16,
+		marginTop: 7,
+		fontWeight: 'bold'
+	}
 });

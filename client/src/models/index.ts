@@ -1,49 +1,49 @@
 export type {
-  IUser,
-  LoginPayload,
-  RegisterPayload,
-  IUpdateUserPayload,
-} from "./IUser";
+	IUpdateUserPayload,
+	IUser,
+	LoginPayload,
+	RegisterPayload
+} from './IUser';
 
 /**
  * Model Album
  *
  */
 export type IAlbum = {
-  id: number;
-  name: string;
-  picture: string;
-  genre: string;
-  description: string;
-  authorId: number;
-  createdAt: Date;
-  updatedAt: Date;
-  author?: {
-    name: string;
-  };
-  _count?: {
-    likes: number;
-    tracks: number;
-  };
+	id: number;
+	name: string;
+	picture: string;
+	genre: string;
+	description: string;
+	authorId: number;
+	createdAt: Date;
+	updatedAt: Date;
+	author?: {
+		name: string;
+	};
+	_count?: {
+		likes: number;
+		tracks: number;
+	};
 
-  tracks?: ITrack[];
+	tracks?: ISong[];
 };
 
 /**
- * Model Track
+ * Model Song
  *
  */
-export type ITrack = {
-  id: number;
-  name: string;
-  authorId: number;
-  albumId: number;
-  audio: string;
-  views: number;
-  picture: string;
-  length: number;
-  createdAt?: Date;
-  updatedAt?: Date;
+export type ISong = {
+	id: number;
+	name: string;
+	authorId: number;
+	albumId: number;
+	audio: string;
+	views: number;
+	picture: string;
+	length: number;
+	createdAt?: Date;
+	updatedAt?: Date;
 };
 
 /**
@@ -51,12 +51,12 @@ export type ITrack = {
  *
  */
 export type IComment = {
-  id: number;
-  authorId: number;
-  trackId: number;
-  body: string;
-  createdAt: Date;
-  updatedAt: Date;
+	id: number;
+	authorId: number;
+	trackId: number;
+	body: string;
+	createdAt: Date;
+	updatedAt: Date;
 };
 
 /**
@@ -64,15 +64,15 @@ export type IComment = {
  *
  */
 export type ILike = {
-  id: number;
-  authorId: number;
-  trackId: number;
-  createdAt: Date;
-  updatedAt: Date;
+	id: number;
+	authorId: number;
+	trackId: number;
+	createdAt: Date;
+	updatedAt: Date;
 };
 
 export interface ICategory {
-  id: number;
-  title: string;
-  albums: IAlbum[];
+	id: number;
+	title: string;
+	albums: IAlbum[];
 }

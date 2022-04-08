@@ -1,7 +1,8 @@
-import { StyleSheet, View, Image, Text } from "react-native";
+import { StyleSheet, View, Image, Text, Pressable } from "react-native";
 import React from "react";
 import { IAlbum } from "models";
 import { colors } from "variables";
+import { useRouting } from "hooks";
 
 interface RecentItemProps {
   item: IAlbum;
@@ -10,13 +11,18 @@ interface RecentItemProps {
 const RecentItem: React.FC<RecentItemProps> = (props) => {
   const { item } = props;
 
+  const { navigateTo } = useRouting();
+
   return (
-    <View style={{ width: 100, margin: 8, marginTop: 20 }}>
+    <Pressable
+      onPress={navigateTo("album", { albumId: item.id })}
+      style={{ width: 100, margin: 8, marginTop: 20 }}
+    >
       <Image style={styles.image} source={{ uri: item.picture }} />
       <Text numberOfLines={2} style={styles.title}>
         {item.name}
       </Text>
-    </View>
+    </Pressable>
   );
 };
 

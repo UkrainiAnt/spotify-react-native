@@ -1,3 +1,10 @@
 export { default as LoginScreen } from "./LoginScreen";
 export { default as RegisterScreen } from "./RegisterScreen";
 export { default as HomeScreen } from "./HomeScreen";
+export { default as AlbumScreen } from "./AlbumScreen";
+export { default as SearchScreen } from "./SearchScreen";
+export { default as LibraryScreen } from "./LibraryScreen";
+export { default as PremiumScreen } from "./PremiumScreen";
+export { default as SongActionScreen } from "./SongActionScreen";
+export { default as SongScreen } from "./SongScreen";
+export { default as AlbumActionScreen } from "./AlbumActionScreen";

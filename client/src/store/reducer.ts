@@ -1,6 +1,7 @@
-import counterReducer from "./slices/counter.slice";
-import { combineReducers } from "redux";
+import { combineReducers } from 'redux';
+
+import { default as currentSongReducer } from './slices/select-song.slice';
 
 export const rootReducer = combineReducers({
-  counter: counterReducer,
+	currentSong: currentSongReducer,
 });
