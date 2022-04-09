@@ -1,4 +1,3 @@
-/* eslint-disable simple-import-sort/imports */
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { ISong } from 'models';
 

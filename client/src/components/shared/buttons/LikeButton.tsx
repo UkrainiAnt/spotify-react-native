@@ -6,11 +6,12 @@ import { View, ViewStyle } from 'react-native';
 import { colors } from 'variables';
 
 interface LikeButtonProps {
-	style: ViewStyle;
+	style?: ViewStyle;
+	size?: number;
 }
 
 const LikeButton: React.FC<LikeButtonProps> = props => {
-	const { style } = props;
+	const { style = {}, size = 21 } = props;
 
 	const [isLiked, toggleLiked] = useToggle(false);
 
@@ -19,12 +20,12 @@ const LikeButton: React.FC<LikeButtonProps> = props => {
 			{isLiked ? (
 				<IconButton
 					onPress={toggleLiked}
-					Icon={<FontAwesome name='heart' size={21} color={colors.text} />}
+					Icon={<FontAwesome name='heart' size={size} color={colors.text} />}
 				/>
 			) : (
 				<IconButton
 					onPress={toggleLiked}
-					Icon={<FontAwesome5 name='heart' size={21} color={colors.text} />}
+					Icon={<FontAwesome5 name='heart' size={size} color={colors.text} />}
 				/>
 			)}
 		</View>

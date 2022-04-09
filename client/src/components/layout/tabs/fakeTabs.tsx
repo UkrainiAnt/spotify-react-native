@@ -1,32 +1,5 @@
 import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 
-export const gradiesntColors: string[] = [
-	'#00000060',
-	'#00000060',
-	'#00000070',
-	'#00000070',
-	'#00000080',
-	'#00000080',
-	'#00000080',
-	'#00000080',
-	'#00000090',
-	'#00000090',
-	'#00000090',
-	'#00000090',
-	'#00000090',
-	'#00000090',
-	'#000',
-	'#000',
-	'#000',
-	'#000',
-	'#000',
-	'#000',
-	'#000',
-	'#000',
-	'#000',
-	'#000',
-];
-
 const fakeTabs: any[] = [
 	{
 		Icon: 'home-filled',
@@ -40,13 +13,6 @@ const fakeTabs: any[] = [
 		to: 'search',
 		iconSet: MaterialIcons,
 		label: 'Search',
-	},
-
-	{
-		Icon: 'my-library-music',
-		to: 'library',
-		iconSet: MaterialIcons,
-		label: 'Library',
 	},
 
 	{

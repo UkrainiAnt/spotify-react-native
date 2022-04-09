@@ -1,8 +1,12 @@
+import { IUser } from './IUser';
+
+export type { IMoreTabItem } from './static/ITab';
+
 export type {
 	IUpdateUserPayload,
 	IUser,
 	LoginPayload,
-	RegisterPayload
+	RegisterPayload,
 } from './IUser';
 
 /**
@@ -18,15 +22,13 @@ export type IAlbum = {
 	authorId: number;
 	createdAt: Date;
 	updatedAt: Date;
-	author?: {
-		name: string;
-	};
+	author?: IUser;
 	_count?: {
 		likes: number;
-		tracks: number;
+		songs: number;
 	};
 
-	tracks?: ISong[];
+	songs?: ISong[];
 };
 
 /**
@@ -41,6 +43,7 @@ export type ISong = {
 	audio: string;
 	views: number;
 	picture: string;
+	author?: IUser;
 	length: number;
 	createdAt?: Date;
 	updatedAt?: Date;

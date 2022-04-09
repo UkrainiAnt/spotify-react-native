@@ -1,10 +1,10 @@
-import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import { Dimensions, StyleSheet, View } from 'react-native';
 
 import { Player } from '../player';
 import { SingleTab } from '.';
-import { default as fakeTabs, gradiesntColors } from './fakeTabs';
+import { default as fakeTabs } from './fakeTabs';
+import { colors } from 'variables';
 
 export const Tabs = () => {
 	const tabsComponents = fakeTabs.map(tab => (
@@ -14,14 +14,7 @@ export const Tabs = () => {
 	return (
 		<View style={styles.absoluteWrapper}>
 			<Player />
-			<LinearGradient
-				start={{ y: 0, x: 1 }}
-				end={{ y: 1, x: 1 }}
-				colors={gradiesntColors}
-				style={styles.wrapper}
-			>
-				{tabsComponents}
-			</LinearGradient>
+			<View style={styles.wrapper}>{tabsComponents}</View>
 		</View>
 	);
 };
@@ -35,11 +28,13 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 30,
 		paddingVertical: 10,
 		paddingBottom: 20,
+		backgroundColor: colors.tabsColor,
 	},
 
 	absoluteWrapper: {
 		position: 'absolute',
 		bottom: -5,
+		backgroundColor: colors.tabsColor,
 	},
 });
 

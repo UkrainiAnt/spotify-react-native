@@ -12,6 +12,7 @@ import {
 	HomeScreen,
 	LibraryScreen,
 	LoginScreen,
+	PlayerScreen,
 	PremiumScreen,
 	RegisterScreen,
 	SearchScreen,
@@ -48,23 +49,20 @@ const StackNavigation = () => {
 							name='home'
 							component={HomeScreen}
 						/>
-
 						<Stack.Screen
 							options={HomeScreenOptions}
 							name='album'
 							component={AlbumScreen}
 						/>
-
-						<Stack.Screen
-							options={HomeScreenOptions}
-							name='search'
-							component={SearchScreen}
-						/>
-
 						<Stack.Screen
 							options={HomeScreenOptions}
 							name='library'
 							component={LibraryScreen}
+						/>
+						<Stack.Screen
+							options={HomeScreenOptions}
+							name='search'
+							component={SearchScreen}
 						/>
 
 						<Stack.Screen
@@ -75,20 +73,26 @@ const StackNavigation = () => {
 
 						<Stack.Group
 							screenOptions={{
-								gestureDirection: 'horizontal',
+								gestureDirection: 'vertical',
 								presentation: 'modal',
+								cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
 							}}
 						>
 							<Stack.Screen
 								options={HomeScreenOptions}
-								name='song_actions'
+								name='album_more'
+								component={AlbumActionScreen}
+							/>
+							<Stack.Screen
+								options={HomeScreenOptions}
+								name='song_more'
 								component={SongActionScreen}
 							/>
 
 							<Stack.Screen
 								options={HomeScreenOptions}
-								name='album_actions'
-								component={AlbumActionScreen}
+								name='player'
+								component={PlayerScreen}
 							/>
 						</Stack.Group>
 

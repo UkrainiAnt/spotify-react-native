@@ -4,24 +4,26 @@ import { DescriptionDates, DescriptionsActions } from '.';
 import { useAuthState } from 'hooks';
 import { colors } from 'variables';
 import { AuthorsList } from '.';
+import { IAlbum } from 'models';
 
 interface AlbumDetailProps {
-	albumName: string;
-	createdAt: Date;
-	updatedAt: Date;
+	album: IAlbum;
 }
 
 const AlbumDetail: React.FC<AlbumDetailProps> = props => {
-	const { albumName, createdAt, updatedAt } = props;
+	const { album } = props;
 	const { user } = useAuthState();
 
 	return (
 		<View style={styles.titlesWrapper}>
-			<Text style={styles.title}>{albumName}</Text>
+			<Text style={styles.title}>{album.name}</Text>
 
-			<DescriptionsActions albumId={2} />
+			<DescriptionsActions album={album} />
 
-			<DescriptionDates createdAt={createdAt} updatedAt={updatedAt} />
+			<DescriptionDates
+				createdAt={album.createdAt}
+				updatedAt={album.updatedAt}
+			/>
 			{user && <AuthorsList users={[user]} />}
 		</View>
 	);
